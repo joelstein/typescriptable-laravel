@@ -191,7 +191,8 @@ class DatabaseConversion
         $typescript = '';
 
         foreach ($types as $type) {
-            $typescript .= " '{$type}' |";
+            $value = is_string($type) ? "'{$type}'" : $type;
+            $typescript .= " $value |";
         }
 
         $typescript = rtrim($typescript, '|');
